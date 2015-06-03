@@ -182,7 +182,9 @@ public class TileInfuser extends TileEntity implements IInventory, IFluidHandler
                         }
                     }
                     if (space >= 0) {
-                        tanks.add(new FluidTank(new FluidStack(fluid.getFluid(), Math.min(space, fluid.amount)), ((ItemArmorFLORA) item.getItem()).getFluidCapacity()));
+                        int fillTank = Math.min(space, fluid.amount);
+                        tanks.add(new FluidTank(new FluidStack(fluid.getFluid(), fillTank), ((ItemArmorFLORA) item.getItem()).getFluidCapacity()));
+                        fluid.amount -= fillTank;
                         if (doFill) {
                             ((ItemArmorFLORA) item.getItem()).setFluidTanks(item, tanks);
                         }
@@ -198,7 +200,8 @@ public class TileInfuser extends TileEntity implements IInventory, IFluidHandler
     @Override
     public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
         if (!canFill(from, resource.getFluid())) return 0;
-        return fillArmorWithFluid(resource, doFill) ? 1000 : 0;
+        int inputAmount = resource.amount;
+        return fillArmorWithFluid(resource, doFill) ? inputAmount - resource.amount : 0;
     }
 
     @Override
