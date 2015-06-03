@@ -2,6 +2,7 @@ package flora.core.block;
 
 import cofh.core.item.ItemBucket;
 import flora.core.item.ItemArmorFLORA;
+import flora.core.logic.ArmorEffectsManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -195,6 +196,7 @@ public class TileInfuser extends TileEntity implements IInventory, IFluidHandler
 
     @Override
     public int fill(ForgeDirection from, FluidStack resource, boolean doFill) {
+        if (!canFill(from, resource.getFluid())) return 0;
         return fillArmorWithFluid(resource, doFill) ? 1000 : 0;
     }
 
@@ -210,7 +212,7 @@ public class TileInfuser extends TileEntity implements IInventory, IFluidHandler
 
     @Override
     public boolean canFill(ForgeDirection from, Fluid fluid) {
-        return true;
+        return ArmorEffectsManager.fluidIntegerHashMap.containsKey(fluid);
     }
 
     @Override
