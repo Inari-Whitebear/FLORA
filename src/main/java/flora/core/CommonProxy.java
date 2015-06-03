@@ -21,9 +21,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.ShapedOreRecipe;
-import redstonearsenal.item.RAItems;
-import thermalexpansion.block.TEBlocks;
-import thermalexpansion.item.TEItems;
+import cofh.redstonearsenal.item.RAItems;
+import cofh.thermalexpansion.block.TEBlocks;
+import cofh.thermalexpansion.item.TEItems;
 
 public class CommonProxy implements IGuiHandler{
 

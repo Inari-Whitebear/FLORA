@@ -19,7 +19,7 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidTank;
-import thermalfoundation.fluid.TFFluids;
+import cofh.thermalfoundation.fluid.TFFluids;
 
 import java.util.HashMap;
 import java.util.List;
