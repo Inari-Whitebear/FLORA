@@ -171,6 +171,7 @@ public class TileInfuser extends TileEntity implements IInventory, IFluidHandler
                             int drain = Math.min(space, fluid.amount);
                             tank.fill(new FluidStack(fluid.getFluid(), drain), true);
                             fluid.amount -= drain;
+                            space -= drain;
                             if (doFill) {
                                 ((ItemArmorFLORA) item.getItem()).setFluidTanks(item, tanks);
                             }
